@@ -3,46 +3,81 @@ import React from "react";
 import Particles from "./components/particles";
 
 const navigation = [
-  { name: "About Me", href: "/about" },
-  { name: "Contact", href: "/contact" },
+	{ name: "About Me", href: "/about" },
+	{ name: "Contact", href: "/contact" },
+	{
+		name: "LinkedIn",
+		href: "https://www.linkedin.com/in/bilguun-tsolmonbaatar/",
+	},
 ];
 
 export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
-      <nav className="my-16 animate-fade-in">
-        <ul className="flex items-center justify-center gap-4">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm duration-500 text-zinc-500 hover:text-zinc-300"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-      </nav>
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <Particles
-        className="absolute inset-0 -z-10 animate-fade-in"
-        quantity={100}
-      />
-      <h1 className="z-10 text-3xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-7xl whitespace-nowrap bg-clip-text ">
-        Bilguun Tsolmonbaatar
-      </h1>
+	return (
+		<div className="relative flex min-h-screen w-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black px-6 py-12 text-center">
+			<nav className="mb-14 animate-fade-in md:mb-16">
+				<ul className="flex items-center justify-center gap-4">
+					{navigation.map((item) => (
+						<Link
+							key={item.href}
+							href={item.href}
+							target={item.href.startsWith("http") ? "_blank" : undefined}
+							className="text-sm duration-500 text-zinc-500 hover:text-zinc-300"
+						>
+							{item.name}
+						</Link>
+					))}
+				</ul>
+			</nav>
+			<div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+			<Particles
+				className="absolute inset-0 -z-10 animate-fade-in"
+				quantity={100}
+			/>
+			<h1 className="z-10 max-w-5xl text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-7xl bg-clip-text">
+				Bilguun Tsolmonbaatar
+			</h1>
 
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <h1 className="z-10 text-2xl duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-3xl md:text-3xl whitespace-nowrap bg-clip-text mt-3">
-        Full Stack Developer
-      </h1>
-      <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-zinc-500 ">
-          <br />
-          Hello, my name is Bilguun, I am a student at UNSW majoring in Computer
-          Science
-        </h2>
-      </div>
-    </div>
-  );
+			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+			<div className="z-10 mt-6 max-w-3xl animate-fade-in">
+				<p className="font-display text-2xl text-zinc-100 sm:text-3xl">
+					Data Scientist / ML Developer
+				</p>
+				<p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg">
+					Computer Science graduate from UNSW with hands-on experience in
+					machine learning, data analytics, and software development. I build
+					predictive models and analytics tools for operational decision-making,
+					including gold recovery optimization for mining operations.
+				</p>
+				<div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+					<Link
+						href="/about"
+						className="rounded-full border border-zinc-500 px-5 py-3 text-sm font-medium text-zinc-100 duration-200 hover:border-zinc-200 hover:bg-zinc-900"
+					>
+						View experience
+					</Link>
+					<Link
+						href="https://www.linkedin.com/in/bilguun-tsolmonbaatar/"
+						target="_blank"
+						className="rounded-full px-5 py-3 text-sm font-medium text-zinc-400 duration-200 hover:text-zinc-100"
+					>
+						Connect on LinkedIn
+					</Link>
+				</div>
+				<div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4 text-left sm:grid-cols-3">
+					{[
+						["Recent", "Boroo Gold ML internship"],
+						["Focus", "Predictive modelling and analytics"],
+						["Location", "Ulaanbaatar, Mongolia"],
+					].map(([label, value]) => (
+						<div key={label} className="border-l border-zinc-700 pl-4">
+							<p className="text-xs uppercase tracking-[0.2em] text-zinc-600">
+								{label}
+							</p>
+							<p className="mt-2 text-sm text-zinc-300">{value}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	);
 }
