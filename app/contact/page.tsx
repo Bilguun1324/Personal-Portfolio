@@ -3,6 +3,7 @@ import { Github, Mail, Linkedin, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import { Reveal } from "../components/reveal";
 
 const socials = [
 	{
@@ -42,7 +43,7 @@ export default function Example() {
 		<div className="min-h-screen bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
 			<Navigation />
 			<main className="container px-6 py-28 mx-auto lg:py-36">
-				<div className="max-w-3xl">
+				<Reveal className="max-w-3xl">
 					<h1 className="text-4xl font-extrabold tracking-tight text-zinc-100 sm:text-5xl">
 						Contact
 					</h1>
@@ -50,9 +51,12 @@ export default function Example() {
 						Reach me for machine learning, data analytics, software engineering,
 						or product work.
 					</p>
-				</div>
+				</Reveal>
 
-				<div className="grid w-full grid-cols-1 gap-4 mx-auto mt-10 sm:grid-cols-2 lg:grid-cols-3">
+				<Reveal
+					className="grid w-full grid-cols-1 gap-4 mx-auto mt-10 sm:grid-cols-2 lg:grid-cols-3"
+					delay={0.08}
+				>
 					{socials.map((s) => (
 						<Card key={s.href}>
 							<Link
@@ -78,7 +82,7 @@ export default function Example() {
 							</Link>
 						</Card>
 					))}
-				</div>
+				</Reveal>
 			</main>
 		</div>
 	);

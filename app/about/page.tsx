@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
+import { Reveal } from "../components/reveal";
 
 const experience = [
 	{
@@ -150,7 +150,10 @@ export default function AboutPage() {
 		<div className="relative min-h-screen pb-16">
 			<Navigation />
 			<main className="px-6 pt-24 mx-auto space-y-14 max-w-6xl lg:px-8 lg:pt-32">
-				<section className="grid gap-8 lg:grid-cols-[1fr_22rem] lg:items-start">
+				<Reveal
+					as="section"
+					className="grid gap-8 lg:grid-cols-[1fr_22rem] lg:items-start"
+				>
 					<div>
 						<p className="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
 							About
@@ -198,9 +201,9 @@ export default function AboutPage() {
 							Contact
 						</Link>
 					</aside>
-				</section>
+				</Reveal>
 
-				<section className="grid gap-4 md:grid-cols-3">
+				<Reveal as="section" className="grid gap-4 md:grid-cols-3" delay={0.05}>
 					{highlights.map((item) => (
 						<div
 							key={item.title}
@@ -217,11 +220,15 @@ export default function AboutPage() {
 							</p>
 						</div>
 					))}
-				</section>
+				</Reveal>
 
 				<div className="w-full h-px bg-zinc-800" />
 
-				<section className="grid gap-10 lg:grid-cols-[20rem_1fr]">
+				<Reveal
+					as="section"
+					className="grid gap-10 lg:grid-cols-[20rem_1fr]"
+					delay={0.08}
+				>
 					<aside className="lg:sticky lg:top-28 lg:self-start">
 						<h2 className="text-2xl font-bold text-zinc-100 font-display">
 							Education & skills
@@ -285,9 +292,9 @@ export default function AboutPage() {
 							))}
 						</div>
 					</section>
-				</section>
+				</Reveal>
 
-				<section>
+				<Reveal as="section" delay={0.08}>
 					<h2 className="text-2xl font-bold text-zinc-100 font-display">
 						Extracurricular
 					</h2>
@@ -312,7 +319,7 @@ export default function AboutPage() {
 							</article>
 						))}
 					</div>
-				</section>
+				</Reveal>
 			</main>
 		</div>
 	);

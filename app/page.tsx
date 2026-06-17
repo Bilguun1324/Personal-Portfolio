@@ -1,6 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
+import { MagneticLink } from "./components/magnetic-link";
+import { Reveal } from "./components/reveal";
 
 const navigation = [
 	{ name: "About Me", href: "/about" },
@@ -14,7 +16,7 @@ const navigation = [
 export default function Home() {
 	return (
 		<div className="relative flex min-h-screen w-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black px-6 py-12 text-center">
-			<nav className="mb-14 animate-fade-in md:mb-16">
+			<Reveal as="nav" className="mb-14 md:mb-16">
 				<ul className="flex items-center justify-center gap-4">
 					{navigation.map((item) => (
 						<Link
@@ -27,18 +29,18 @@ export default function Home() {
 						</Link>
 					))}
 				</ul>
-			</nav>
+			</Reveal>
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<Particles
 				className="absolute inset-0 -z-10 animate-fade-in"
 				quantity={100}
 			/>
-			<h1 className="z-10 max-w-5xl text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-7xl bg-clip-text">
+			<h1 className="kinetic-title z-10 max-w-5xl cursor-default bg-clip-text text-4xl text-transparent duration-1000 text-edge-outline animate-title font-display sm:text-6xl md:text-7xl">
 				Bilguun Tsolmonbaatar
 			</h1>
 
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-			<div className="z-10 mt-6 max-w-3xl animate-fade-in">
+			<Reveal className="z-10 mt-6 max-w-3xl" delay={0.25}>
 				<p className="font-display text-2xl text-zinc-100 sm:text-3xl">
 					Data Scientist / ML Developer
 				</p>
@@ -49,19 +51,19 @@ export default function Home() {
 					including gold recovery optimization for mining operations.
 				</p>
 				<div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-					<Link
+					<MagneticLink
 						href="/about"
-						className="rounded-full border border-zinc-500 px-5 py-3 text-sm font-medium text-zinc-100 duration-200 hover:border-zinc-200 hover:bg-zinc-900"
+						className="rounded-full border border-zinc-500 px-5 py-3 text-sm font-medium text-zinc-100 shadow-[0_0_32px_rgba(255,255,255,0.06)] duration-300 hover:border-zinc-200 hover:bg-zinc-900 hover:shadow-[0_0_42px_rgba(255,255,255,0.16)]"
 					>
 						View experience
-					</Link>
-					<Link
+					</MagneticLink>
+					<MagneticLink
 						href="https://www.linkedin.com/in/bilguun-tsolmonbaatar/"
 						target="_blank"
 						className="rounded-full px-5 py-3 text-sm font-medium text-zinc-400 duration-200 hover:text-zinc-100"
 					>
 						Connect on LinkedIn
-					</Link>
+					</MagneticLink>
 				</div>
 				<div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4 text-left sm:grid-cols-3">
 					{[
@@ -77,7 +79,7 @@ export default function Home() {
 						</div>
 					))}
 				</div>
-			</div>
+			</Reveal>
 		</div>
 	);
 }
